@@ -1,0 +1,13 @@
+{% for employee in employee_tree %}
+<tr>
+    <td>{{ employee.name }}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>{{ employee.email }}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>{{ employee.address }}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>{{ employee.reporting_manager.name }}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    {% if employee.subordinates.count > 0 %}
+    <td><table>
+        {% include "employee_table_rows.html" with employee_tree=employee.subordinates.reporting_manager %}
+    </table></td>
+    {% endif %}
+</tr>
+{% endfor %}

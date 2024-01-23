@@ -1,0 +1,16 @@
+{% for department in departments %}
+<h2>{{ department.name }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Email</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Address</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Reporting To</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </tr>
+    </thead>
+    <tbody>
+        {% include "employee_table_rows.html" with employee_tree=department.employee_set.all %}
+    </tbody>
+</table>
+{% endfor %}
